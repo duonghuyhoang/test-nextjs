@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import NavBar from "../components/NavBar";
 
-
 const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
