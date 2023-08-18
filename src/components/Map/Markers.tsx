@@ -1,22 +1,22 @@
-import { DestinationCordiContext } from '@/context/DestinationCordiContext';
-import { SourceCordiContext } from '@/context/SourceCordiContext';
-import { UserLocationContext } from '@/context/UserLocationContext';
-import React, { useContext } from 'react'
-import { Map,Marker } from 'react-map-gl'
+import { DestinationCordiContext } from "@/src/context/DestinationCordiContext";
+import { SourceCordiContext } from "@/src/context/SourceCordiContext";
+import { UserLocationContext } from "@/src/context/UserLocationContext";
+import React, { useContext } from "react";
+import { Map, Marker } from "react-map-gl";
 
 function Markers() {
-    const {userLocation,setUserLocation}
-    =useContext(UserLocationContext);
-  
-    const {soruceCordinates,setSourceCordinates}
-    =useContext(SourceCordiContext);
-    const {destinationCordinates,setDestinationCordinates}
-    =useContext(DestinationCordiContext);
+  const { userLocation, setUserLocation } = useContext(UserLocationContext);
+
+  const { soruceCordinates, setSourceCordinates } =
+    useContext(SourceCordiContext);
+  const { destinationCordinates, setDestinationCordinates } = useContext(
+    DestinationCordiContext
+  );
 
   return (
     <div>
-        {/* User Marker  */}
-             {/* <Marker 
+      {/* User Marker  */}
+      {/* <Marker 
                 longitude={userLocation?.lng} 
                 latitude={userLocation?.lat} 
                 anchor="bottom" >
@@ -25,34 +25,30 @@ function Markers() {
                  />
                 </Marker> */}
 
-                {/* Source marker  */}
-             {soruceCordinates.length!=0? <Marker 
-                longitude={soruceCordinates?.lng} 
-                latitude={soruceCordinates?.lat} 
-                anchor="bottom" >
-                
-                 
-                  <img src="./location.png" 
-                 className='w-10 h-10'
-                 />
-                
-                 
-                </Marker>:null}
+      {/* Source marker  */}
+      {soruceCordinates.length != 0 ? (
+        <Marker
+          longitude={soruceCordinates?.lng}
+          latitude={soruceCordinates?.lat}
+          anchor='bottom'
+        >
+          <img src='./location.png' className='w-10 h-10' />
+        </Marker>
+      ) : null}
 
+      {/* Destination Marker  */}
 
-                {/* Destination Marker  */}
-
-                {destinationCordinates.length!=0? <Marker 
-                longitude={destinationCordinates?.lng} 
-                latitude={destinationCordinates?.lat} 
-                anchor="bottom" >
-                  <img src="./location.png" 
-                 className='w-10 h-10'
-                 />
-                </Marker>:null}
-
+      {destinationCordinates.length != 0 ? (
+        <Marker
+          longitude={destinationCordinates?.lng}
+          latitude={destinationCordinates?.lat}
+          anchor='bottom'
+        >
+          <img src='./location.png' className='w-10 h-10' />
+        </Marker>
+      ) : null}
     </div>
-  )
+  );
 }
 
-export default Markers
+export default Markers;

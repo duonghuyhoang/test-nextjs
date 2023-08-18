@@ -1,13 +1,15 @@
-import { UserLocationContext } from "@/context/UserLocationContext";
+import { UserLocationContext } from "@/src/context/UserLocationContext";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Map, Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Markers from "./Markers";
-import { SourceCordiContext } from "@/context/SourceCordiContext";
-import { DestinationCordiContext } from "@/context/DestinationCordiContext";
+import { SourceCordiContext } from "@/src/context/SourceCordiContext";
+
 import MapBoxRoute from "./MapBoxRoute";
-import { DirectionDataContext } from "@/context/DirectionDataContext";
+
 import DistanceTime from "../Booking/DistanceTime";
+import { DestinationCordiContext } from "./../../context/DestinationCordiContext";
+import { DirectionDataContext } from "./../../context/DirectionDataContext";
 const MAPBOX_DRIVING_ENDPOINT =
   "https://api.mapbox.com/directions/v5/mapbox/driving/";
 const session_token = "5ccce4a4-ab0a-4a7c-943d-580e55542363";
@@ -21,7 +23,7 @@ function MapboxMap() {
     DestinationCordiContext
   );
 
-  const {directionData, setDirectionData} = useContext(DirectionDataContext);
+  const { directionData, setDirectionData } = useContext(DirectionDataContext);
 
   //Use to Fly to Source Marker Location
 
@@ -75,9 +77,9 @@ function MapboxMap() {
   };
 
   return (
-    <div className="p-5">
-      <h2 className="text-[20px] font-semibold">Map</h2>
-      <div className="rounded-lg overflow-hidden">
+    <div className='p-5'>
+      <h2 className='text-[20px] font-semibold'>Map</h2>
+      <div className='rounded-lg overflow-hidden'>
         {userLocation ? (
           <Map
             ref={mapRef}
@@ -88,7 +90,7 @@ function MapboxMap() {
               zoom: 14,
             }}
             style={{ width: "100%", height: 450, borderRadius: 10 }}
-            mapStyle="mapbox://styles/mapbox/streets-v9"
+            mapStyle='mapbox://styles/mapbox/streets-v9'
           >
             <Markers />
 
@@ -100,10 +102,12 @@ function MapboxMap() {
           </Map>
         ) : null}
       </div>
-      <div className="absolute bottom-[40px]
-      z-20 right-[20px]">
-     <DistanceTime />
-     </div>
+      <div
+        className='absolute bottom-[40px]
+      z-20 right-[20px]'
+      >
+        <DistanceTime />
+      </div>
     </div>
   );
 }

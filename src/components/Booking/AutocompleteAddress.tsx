@@ -1,5 +1,5 @@
-import { DestinationCordiContext } from "@/context/DestinationCordiContext";
-import { SourceCordiContext } from "@/context/SourceCordiContext";
+import { DestinationCordiContext } from "@/src/context/DestinationCordiContext";
+import { SourceCordiContext } from "@/src/context/SourceCordiContext";
 import React, { useContext, useEffect, useState } from "react";
 
 const session_token = "5ccce4a4-ab0a-4a7c-943d-580e55542363";
